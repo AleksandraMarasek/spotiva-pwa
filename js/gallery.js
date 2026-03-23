@@ -9,7 +9,10 @@ function renderGallery() {
   if (places.length === 0) {
     container.innerHTML = `
       <div class="col-12">
-        <div class="alert alert-info">Brak zapisanych miejsc. Dodaj je na stronie głównej!</div>
+        <div class="alert alert-secondary text-center p-4">
+          <h4 class="h5 mb-3">Wciąż tu pusto...</h4>
+          <p class="mb-0">Brak zapisanych miejsc. Dodaj pierwsze zdjęcie nastronie głównej</p>
+        </div>
       </div>
     `;
     return;
