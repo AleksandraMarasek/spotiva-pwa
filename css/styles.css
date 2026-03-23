@@ -194,6 +194,16 @@ h3,
   color: #7a4b63;
 }
 
+.alert-success {
+  background: #ffe2f0;
+  color: #8f124f;
+}
+
+.alert-danger {
+  background: #ffe8ee;
+  color: #a61e4d;
+}
+
 .preview-image {
   width: 100%;
   max-height: 320px;
