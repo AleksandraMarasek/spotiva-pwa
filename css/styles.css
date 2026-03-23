@@ -262,6 +262,20 @@ main h1.h3 {
   box-shadow: 0 8px 20px rgba(214, 51, 132, 0.08);
 }
 
+.leaflet-popup-content-wrapper {
+  border-radius: 18px;
+  box-shadow: 0 14px 32px rgba(214, 51, 132, 0.22);
+}
+
+.leaflet-popup-content {
+  margin: 14px 16px;
+  color: var(--text-main);
+}
+
+.leaflet-control-zoom a {
+  color: var(--pink-1);
+}
+
 @media (max-width: 576px) {
   .card-body {
     padding: 1rem;
