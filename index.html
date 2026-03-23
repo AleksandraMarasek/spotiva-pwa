@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FotoMapa miejsc</title>
+  <title>Spotiva - spot share shine</title>
 
   <link rel="manifest" href="./manifest.json" />
   <meta name="theme-color" content="#0d6efd" />
@@ -17,14 +17,12 @@
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
   <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/camera-modal.css" />
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="./index.html">
-        <img src="./icons/pagelogo.png" alt="FotoMapa" height="40"
-          style="object-fit:contain; filter:drop-shadow(0 1px 3px rgba(0,0,0,0.18));" />
-      </a>
+      <a class="navbar-brand" href="./index.html">Spotiva</a>
       <div class="navbar-nav">
         <a class="nav-link active" href="./index.html">Dodaj</a>
         <a class="nav-link" href="./gallery.html">Galeria</a>
@@ -46,14 +44,22 @@
             </div>
 
             <div class="mb-3">
-              <label for="photoInput" class="form-label">Zrób zdjęcie</label>
-              <input
-                id="photoInput"
-                class="form-control"
-                type="file"
-                accept="image/*"
-                capture="environment"
-              />
+              <label class="form-label">Zdjęcie</label>
+
+              <div class="photo-source-btns">
+                <button id="openCamBtn" class="btn btn-outline-primary" type="button">
+                  Użyj kamery
+                </button>
+                <label class="btn btn-outline-primary mb-0" style="cursor:pointer;">
+                  Wybierz plik
+                  <input
+                    id="photoInput"
+                    type="file"
+                    accept="image/*"
+                    class="d-none"
+                  />
+                </label>
+              </div>
             </div>
 
             <div class="mb-3 text-center">
@@ -82,6 +88,19 @@
       </div>
     </div>
   </main>
+
+  <div id="cam-modal" role="dialog" aria-modal="true" aria-label="Podgląd kamery">
+    <div id="cam-box">
+      <video id="cam-video" playsinline autoplay muted></video>
+      <div id="cam-controls">
+        <button id="cam-close"    class="cam-btn" aria-label="Zamknij kamerę">✕</button>
+        <button id="cam-capture"  class="cam-btn" aria-label="Zrób zdjęcie"></button>
+        <button id="cam-switch"   class="cam-btn" aria-label="Zmień kamerę" style="display:none;">🔄</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="cam-canvas"></canvas>
 
   <script src="./js/storage.js"></script>
   <script src="./js/camera.js"></script>
